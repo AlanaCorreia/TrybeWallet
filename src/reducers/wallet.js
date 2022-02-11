@@ -1,4 +1,4 @@
-import { FAILED_REQUEST_TYPE, GET_CURRENCY_TYPE,
+import { DELETE_EXPENSE_TYPE, FAILED_REQUEST_TYPE, GET_CURRENCY_TYPE,
   GET_EXPENSES_TYPE } from '../actions';
 
 const INITIAL_STATE = {
@@ -27,6 +27,11 @@ const walletReducer = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       currencies: action.payload,
+    };
+  case DELETE_EXPENSE_TYPE:
+    return {
+      ...state,
+      expenses: [...state.expenses].filter(({ id }) => id !== Number(action.payload)),
     };
   default:
     return state;

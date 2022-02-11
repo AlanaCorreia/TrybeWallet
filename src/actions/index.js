@@ -2,6 +2,7 @@ export const GET_EMAIL_TYPE = 'GET_EMAIL_TYPE';
 export const GET_EXPENSES_TYPE = 'GET_EXPENSES_TYPE';
 export const FAILED_REQUEST_TYPE = 'FAILED_REQUEST_TYPE';
 export const GET_CURRENCY_TYPE = 'GET_CURRENCY_TYPE';
+export const DELETE_EXPENSE_TYPE = 'DELETE_EXPENSE_TYPE';
 
 export const getEmail = (email) => ({
   type: GET_EMAIL_TYPE,
@@ -22,6 +23,11 @@ const getExpenses = (expense, rates) => ({
 const getCurrency = (currencies) => ({
   type: GET_CURRENCY_TYPE,
   payload: currencies,
+});
+
+export const deleteExpense = (expense) => ({
+  type: DELETE_EXPENSE_TYPE,
+  payload: expense,
 });
 
 export const cotacaoFetch = (expense) => async (dispatch) => {
