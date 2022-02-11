@@ -2,6 +2,7 @@ import { PropTypes } from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { cotacaoFetch, currencyFetch } from '../actions';
+import Table from '../components/Table';
 
 class Wallet extends React.Component {
   constructor() {
@@ -59,7 +60,8 @@ class Wallet extends React.Component {
         <header>
           <h2 data-testid="email-field">{ email }</h2>
           <h3 data-testid="total-field">
-            Despesa Total:
+            Despesa Total: R$
+            {' '}
             { this.SumTotalExpense() }
           </h3>
           <h3 data-testid="header-currency-field">BRL</h3>
@@ -94,7 +96,7 @@ class Wallet extends React.Component {
               onChange={ this.handleChange }
               value={ currency }
             >
-              {currencies && currencies.map((curr) => (
+              {currencies.map((curr) => (
                 <option
                   key={ curr }
                   data-testid={ curr }
@@ -142,6 +144,7 @@ class Wallet extends React.Component {
             Adicionar despesa
           </button>
         </form>
+        <Table />
       </div>
     );
   }
@@ -156,7 +159,6 @@ Wallet.propTypes = {
 const mapStateToProps = (state) => ({
   email: state.user.email,
   expenses: state.wallet.expenses,
-  isLoading: state.wallet.loading,
   currencies: state.wallet.currencies,
 });
 
