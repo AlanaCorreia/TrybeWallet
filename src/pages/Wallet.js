@@ -1,8 +1,7 @@
 import { PropTypes } from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { cotacaoFetch } from '../actions';
-import Loading from '../components/Loading';
+import { cotacaoFetch, currencyFetch } from '../actions';
 
 class Wallet extends React.Component {
   constructor() {
@@ -11,10 +10,14 @@ class Wallet extends React.Component {
     this.state = {
       value: 0,
       description: '',
-      currency: 'CAD',
-      method: 'dinheiro',
-      tag: 'alimentação',
+      currency: 'USD',
+      method: 'Dinheiro',
     };
+  }
+
+  componentDidMount() {
+    const { currenciesFetch } = this.props;
+    currenciesFetch();
   }
 
   handleChange = ({ target }) => {
@@ -34,9 +37,8 @@ class Wallet extends React.Component {
     this.setState({
       value: 0,
       description: '',
-      currency: 'CAD',
-      method: 'dinheiro',
-      tag: 'alimentação',
+      currency: 'USD',
+      method: 'Dinheiro',
     });
   }
 
@@ -51,94 +53,95 @@ class Wallet extends React.Component {
 
   render() {
     const { value, description, currency, method, tag } = this.state;
-    const { email, isLoading } = this.props;
+    const { email, currencies } = this.props;
     return (
       <div>
-        { isLoading ? <Loading />
-          : (
-            <>
-              <header>
-                <h2 data-testid="email-field">{ email }</h2>
-                <h3 data-testid="total-field">
-                  Despesa Total:
-                  { this.SumTotalExpense() }
-                </h3>
-                <h3 data-testid="header-currency-field">BRL</h3>
-              </header>
-              <form>
-                <label htmlFor="value">
-                  Valor:
-                  <input
-                    type="number"
-                    name="value"
-                    data-testid="value-input"
-                    onChange={ this.handleChange }
-                    value={ value }
-                  />
-                </label>
-                <label htmlFor="description">
-                  Descrição:
-                  <input
-                    type="text"
-                    name="description"
-                    data-testid="description-input"
-                    onChange={ this.handleChange }
-                    value={ description }
-                  />
-                </label>
-                <label htmlFor="currency">
-                  Moeda:
-                  <select
-                    name="currency"
-                    id="currency"
-                    data-testid="currency-input"
-                    onChange={ this.handleChange }
-                    value={ currency }
-                  >
-                    <option value="CAD">CAD</option>
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                  </select>
-                </label>
-                <label htmlFor="method">
-                  Método de Pagamento:
-                  <select
-                    name="method"
-                    id="method"
-                    data-testid="method-input"
-                    onChange={ this.handleChange }
-                    value={ method }
-                  >
-                    <option value="dinheiro">Dinheiro</option>
-                    <option value="credito">Cartão de crédito</option>
-                    <option value="debito">Cartão de débito</option>
-                  </select>
-                </label>
-                <label htmlFor="tag">
-                  Tag:
-                  <select
-                    name="tag"
-                    id="tag"
-                    data-testid="tag-input"
-                    onChange={ this.handleChange }
-                    value={ tag }
-                  >
-                    <option value="alimentação">Alimentação</option>
-                    <option value="lazer">Lazer</option>
-                    <option value="trabalho">Trabalho</option>
-                    <option value="transporte">Transporte</option>
-                    <option value="saúde">Saúde</option>
-                  </select>
-                </label>
-                <button
-                  type="button"
-                  onClick={ this.handleClick }
+        <header>
+          <h2 data-testid="email-field">{ email }</h2>
+          <h3 data-testid="total-field">
+            Despesa Total:
+            { this.SumTotalExpense() }
+          </h3>
+          <h3 data-testid="header-currency-field">BRL</h3>
+        </header>
+        <form>
+          <label htmlFor="value">
+            Valor:
+            <input
+              type="number"
+              name="value"
+              data-testid="value-input"
+              onChange={ this.handleChange }
+              value={ value }
+            />
+          </label>
+          <label htmlFor="description">
+            Descrição:
+            <input
+              type="text"
+              name="description"
+              data-testid="description-input"
+              onChange={ this.handleChange }
+              value={ description }
+            />
+          </label>
+          <label htmlFor="currency">
+            Moeda:
+            <select
+              name="currency"
+              id="currency"
+              data-testid="currency-input"
+              onChange={ this.handleChange }
+              value={ currency }
+            >
+              {currencies && currencies.map((curr) => (
+                <option
+                  key={ curr }
+                  data-testid={ curr }
+                  value={ curr }
                 >
-                  Adicionar despesa
-                </button>
-              </form>
-            </>
-          )}
+                  {curr}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="method">
+            Método de Pagamento:
+            <select
+              name="method"
+              id="method"
+              data-testid="method-input"
+              onChange={ this.handleChange }
+              value={ method }
+            >
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão de crédito">Cartão de crédito</option>
+              <option value="Cartão de débito">Cartão de débito</option>
+            </select>
+          </label>
+          <label htmlFor="tag">
+            Tag:
+            <select
+              name="tag"
+              id="tag"
+              data-testid="tag-input"
+              onChange={ this.handleChange }
+              value={ tag }
+            >
+              <option value="Alimentação">Alimentação</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Trabalho">Trabalho</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
+            </select>
+          </label>
+          <button
+            type="button"
+            onClick={ this.handleClick }
+          >
+            Adicionar despesa
+          </button>
+        </form>
       </div>
     );
   }
@@ -147,16 +150,19 @@ class Wallet extends React.Component {
 Wallet.propTypes = {
   email: PropTypes.string,
   expenseFetch: PropTypes.func,
+  currenciesFetch: PropTypes.func,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
   expenses: state.wallet.expenses,
   isLoading: state.wallet.loading,
+  currencies: state.wallet.currencies,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   expenseFetch: (expense) => dispatch(cotacaoFetch(expense)),
+  currenciesFetch: () => dispatch(currencyFetch()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
