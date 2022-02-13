@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { getEmail } from '../actions';
+import '../Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -55,33 +56,38 @@ class Login extends React.Component {
   render() {
     const { disabled, redirect } = this.state;
     return (
-      <div>
-        <h1>Trybewallet</h1>
-        <label htmlFor="email">
-          Email:
-          <input
-            type="email"
-            data-testid="email-input"
-            name="email"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="senha">
-          Senha:
-          <input
-            type="password"
-            data-testid="password-input"
-            name="senha"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <button
-          type="button"
-          disabled={ disabled }
-          onClick={ this.handleClick }
-        >
-          Entrar
-        </button>
+      <div className="login-container">
+        <h1 className="title-header">Trybewallet</h1>
+        <form className="login-form-container">
+          <label htmlFor="email" className="login-label-form">
+            Email:
+            <input
+              className="login-input-form"
+              type="email"
+              data-testid="email-input"
+              name="email"
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="senha" className="login-label-form">
+            Senha:
+            <input
+              className="login-input-form"
+              type="password"
+              data-testid="password-input"
+              name="senha"
+              onChange={ this.handleChange }
+            />
+          </label>
+          <button
+            className="login-btn-entrar"
+            type="button"
+            disabled={ disabled }
+            onClick={ this.handleClick }
+          >
+            Entrar
+          </button>
+        </form>
         { redirect && <Redirect to="/carteira" /> }
       </div>
     );

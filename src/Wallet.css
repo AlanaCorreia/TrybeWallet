@@ -1,0 +1,96 @@
+.header-wallet {
+  background-color: rgb(139, 228, 144);
+  padding: 20px;
+  display: flex;
+  justify-content:space-between;
+}
+
+.container-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.currency-field {
+  margin-left: 5px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ececec;
+}
+
+.form-component {
+  margin-right: 10px;
+}
+
+.form-input {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(214, 217, 220);
+  border-radius: 3px;
+  padding: 8px;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.btn-add {
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #FFFFFF;
+  background-color: #19bd63;
+
+  border: none;
+  border-radius: 3px;
+
+  padding: 10px;
+}
+
+.btn-add:hover {
+  background-color: rgb(99, 238, 123);
+}
+
+.btn-add:active {
+  background-color: #12944d;
+}
+
+table, td, th {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid rgba(133, 133, 133, 0.404);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+td, th {
+  padding: 10px;
+}
+
+th {
+  background-color: rgb(177, 177, 177);
+}
+
+.btn-delete {
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #FFFFFF;
+  background-color: #d62727;
+
+  border: none;
+  border-radius: 3px;
+
+  padding: 10px;
+}
+
+.btn-delete:hover {
+  background-color: rgb(233, 87, 87);
+}
+
+.btn-delete:active {
+  background-color: #b41414;
+}

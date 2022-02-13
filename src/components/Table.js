@@ -2,6 +2,7 @@ import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteExpense } from '../actions';
+import '../Wallet.css';
 
 class Table extends Component {
   handleClick = ({ target }) => {
@@ -49,6 +50,7 @@ class Table extends Component {
                   <td>Real</td>
                   <td>
                     <button
+                      className="btn-delete"
                       type="button"
                       id={ id }
                       data-testid="delete-btn"
