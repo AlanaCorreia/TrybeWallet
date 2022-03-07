@@ -58,27 +58,24 @@ class Login extends React.Component {
     return (
       <div className="login-container">
         <h1 className="title-header">Trybewallet</h1>
+        <img src="./wallet.png" alt="carteira" />
         <form className="login-form-container">
-          <label htmlFor="email" className="login-label-form">
-            Email:
-            <input
-              className="login-input-form"
-              type="email"
-              data-testid="email-input"
-              name="email"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor="senha" className="login-label-form">
-            Senha:
-            <input
-              className="login-input-form"
-              type="password"
-              data-testid="password-input"
-              name="senha"
-              onChange={ this.handleChange }
-            />
-          </label>
+          <input
+            className="login-input-form"
+            type="email"
+            placeholder="Email"
+            data-testid="email-input"
+            name="email"
+            onChange={ this.handleChange }
+          />
+          <input
+            className="login-input-form"
+            type="password"
+            placeholder="Senha"
+            data-testid="password-input"
+            name="senha"
+            onChange={ this.handleChange }
+          />
           <button
             className="login-btn-entrar"
             type="button"

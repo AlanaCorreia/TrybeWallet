@@ -7,18 +7,26 @@
 .login-container {
   display: flex;
   flex-direction: column;
+  /* background-image: url("./manhattanpb.jpg"); */
   background-color: rgb(174, 218, 175);
   border: 1px solid rgb(214, 217, 220);
-  border-radius: 3px;
-  width: 50%;
+  border-radius: 10px;
+  box-shadow: 7px 5px 5px darkgrey;
+  width: 40vw;
   padding: 50px;
-  margin: 40px auto;
+  margin: 15% auto;
 }
 
 .title-header {
   text-align: center;
-  margin: 10px auto 45px;
+  margin: 10px auto 30px;
   font-size: 30px;
+}
+
+img {
+  width: 60px;
+  align-self: center;
+  margin-bottom: 30px;
 }
 
 .login-form-container {
@@ -28,29 +36,36 @@
   margin: auto;
 }
 
-.login-label-form {
-  margin-bottom: 20px;
+input {
+  outline: none;
 }
 
 .login-input-form {
-  margin-top: 10px;
+  margin: 10px auto 20px;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(214, 217, 220);
-  border-radius: 3px;
+  border-radius: 8px;
   width: 100%;
   padding: 7px;
   font-size: 14px;
+}
+
+.login-input-form:hover {
+  box-shadow: 5px 5px 8px rgb(182, 182, 182);
 }
 
 .login-btn-entrar {
   font-size: 16px;
   font-weight: bold;
 
+  align-self: center;
+  width: 80px;
+
   color: #FFFFFF;
   background-color: #19bd63;
 
   border: solid 1px rgb(179, 179, 179);
-  border-radius: 3px;
+  border-radius: 10px;
 
   padding: 10px;
 }

@@ -33,7 +33,7 @@ class Table extends Component {
             .map(({ id, value, description, currency, method, tag, exchangeRates }) => {
               const currencyName = exchangeRates[currency].name.split('/')[0];
               return (
-                <tr key={ id }>
+                <tr key={ id } className="row-table">
                   <td>{description}</td>
                   <td>{tag}</td>
                   <td>{method}</td>

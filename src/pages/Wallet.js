@@ -60,7 +60,7 @@ class Wallet extends React.Component {
     return (
       <div>
         <header className="header-wallet">
-          <h4 data-testid="email-field">{ email }</h4>
+          <h4 className="title-wallet" data-testid="email-field">{ email }</h4>
           <div className="container-header">
             <h4 data-testid="total-field">
               Despesa Total: R$
@@ -74,7 +74,7 @@ class Wallet extends React.Component {
           <label htmlFor="value" className="form-component">
             Valor:
             <input
-              className="form-input input-number"
+              className="form-input"
               type="number"
               name="value"
               data-testid="value-input"
