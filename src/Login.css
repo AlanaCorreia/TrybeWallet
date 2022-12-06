@@ -4,10 +4,35 @@
   box-sizing: border-box;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+  /* background-image: url("./images/backgroundwallet.jpg"); */
+}
+
+.container::after {
+  content: "";
+  background-image: url("./images/backgroundwallet.jpg");
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
-  /* background-image: url("./manhattanpb.jpg"); */
+  justify-content: center;
+  align-items: center;
+  
   background-color: rgb(174, 218, 175);
   border: 1px solid rgb(214, 217, 220);
   border-radius: 10px;
@@ -19,7 +44,7 @@
 
 .title-header {
   text-align: center;
-  margin: 10px auto 30px;
+  margin-bottom: 1.5rem;
   font-size: 30px;
 }
 
@@ -32,8 +57,9 @@ img {
 .login-form-container {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: auto;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 input {
