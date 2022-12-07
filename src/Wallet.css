@@ -20,13 +20,17 @@
 
 .form-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 20px;
   background-color: #ececec;
 }
 
 .form-component {
-  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .form-input {
@@ -35,7 +39,8 @@
   border-radius: 8px;
   padding: 8px;
   font-size: 18px;
-  margin-left: 5px;
+  margin-top: 5px;
+  outline: none;
 }
 
 .btn-add {
